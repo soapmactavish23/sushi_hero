@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://c3a8ydl835ntf"]
+[gd_scene load_steps=41 format=3 uid="uid://c3a8ydl835ntf"]
 
+[ext_resource type="Script" path="res://characters/scripts/main_character.gd" id="1_0f6xc"]
 [ext_resource type="Texture2D" uid="uid://cgv15rrweky" path="res://models/characters/with_knife_and_pan/panda_Sushi_Atlas.png" id="1_egkk4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oxugv"]
@@ -10252,7 +10253,10 @@ _data = {
 "Yes": SubResource("Animation_kkagx")
 }
 
-[node name="Character" type="CharacterBody3D"]
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("_body", "_spring_arm_offset")]
+script = ExtResource("1_0f6xc")
+_body = NodePath("Panda")
+_spring_arm_offset = NodePath("SpringArmOffset")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
