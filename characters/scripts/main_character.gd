@@ -9,6 +9,8 @@ const _SPRINT_SPEED: float = 9.0
 @export var _body: Node3D = null
 @export var _spring_arm_offset: Node3D = null
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
 	_move()
