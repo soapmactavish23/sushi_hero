@@ -29,9 +29,16 @@ func _move() -> void:
 	).normalized()
 	
 	is_running()
+	_direction = _direction.rotated(Vector3.UP, _spring_arm_offset.rotation.y)
 	
-	velocity.x = _direction.x * _current_speed
-	velocity.z = _direction.z * _current_speed
+	if _direction:
+		velocity.x = _direction.x * _current_speed
+		velocity.z = _direction.z * _current_speed
+		_body.apply_rotation(velocity)
+		return
+	
+	velocity.x = move_toward(velocity.x, 0, _current_speed)
+	velocity.z = move_toward(velocity.z, 0, _current_speed)
 	
 
 func is_running() -> bool:
