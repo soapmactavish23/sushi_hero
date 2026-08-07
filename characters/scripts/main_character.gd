@@ -15,6 +15,7 @@ func _ready():
 func _physics_process(delta):
 	_move()
 	move_and_slide()
+	_body.animate(velocity)
 	
 func _move() -> void:
 	var _input_direction: Vector2 = Input.get_vector(
