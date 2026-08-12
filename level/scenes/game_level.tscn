@@ -1,7 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv4s5wn0wm800"]
+[gd_scene load_steps=4 format=3 uid="uid://cv4s5wn0wm800"]
 
 [ext_resource type="PackedScene" uid="uid://c3a8ydl835ntf" path="res://characters/scenes/main_character.tscn" id="1_137yb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1wyma"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jt52"]
+albedo_color = Color(0.117647, 0.117647, 0.117647, 1)
 
 [node name="GameLevel" type="Node3D"]
 
 [node name="Character" parent="." instance=ExtResource("1_137yb")]
+
+[node name="Road" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = SubResource("PlaneMesh_1wyma")
+surface_material_override/0 = SubResource("StandardMaterial3D_5jt52")
