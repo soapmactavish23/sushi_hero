@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcanxso8nwtyg"]
+
+[ext_resource type="MeshLibrary" uid="uid://5o3yafxjcq05" path="res://gridmaps/resources/counters.tres" id="1_djtuq"]
+
+[node name="CountersGridMap" type="GridMap"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.308, 0)
+mesh_library = ExtResource("1_djtuq")
+cell_size = Vector3(1, 1, 1)
