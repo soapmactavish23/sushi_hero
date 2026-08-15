@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv4s5wn0wm800"]
+[gd_scene load_steps=6 format=3 uid="uid://cv4s5wn0wm800"]
 
 [ext_resource type="PackedScene" uid="uid://c3a8ydl835ntf" path="res://characters/scenes/main_character.tscn" id="1_137yb"]
+[ext_resource type="PackedScene" uid="uid://dqklmkvbi6c4l" path="res://gridmaps/scenes/floor_grid_map.tscn" id="2_rj4uc"]
+[ext_resource type="PackedScene" uid="uid://bdtuo1atn3te3" path="res://gridmaps/scenes/walls_grid_map.tscn" id="3_lc0pt"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_1wyma"]
 size = Vector2(1000, 1000)
@@ -16,3 +18,18 @@ albedo_color = Color(0.117647, 0.117647, 0.117647, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
 mesh = SubResource("PlaneMesh_1wyma")
 surface_material_override/0 = SubResource("StandardMaterial3D_5jt52")
+
+[node name="LevelGridMap" type="Node3D" parent="."]
+
+[node name="FloorGridMap" parent="LevelGridMap" instance=ExtResource("2_rj4uc")]
+
+[node name="Walls" type="Node3D" parent="LevelGridMap/FloorGridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.092, 0)
+
+[node name="WallsGridMap_1" parent="LevelGridMap/FloorGridMap/Walls" instance=ExtResource("3_lc0pt")]
+
+[node name="WallsGridMap_2" parent="LevelGridMap/FloorGridMap/Walls" instance=ExtResource("3_lc0pt")]
+
+[node name="WallsGridMap_3" parent="LevelGridMap/FloorGridMap/Walls" instance=ExtResource("3_lc0pt")]
+
+[node name="WallsGridMap_4" parent="LevelGridMap/FloorGridMap/Walls" instance=ExtResource("3_lc0pt")]
